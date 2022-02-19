@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="author_res_partner_form" model="ir.ui.view">
+      <field name="name">Add author boolean to Partner Form</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form" />
+      <field name="arch" type="xml">
+        <field name="type" position="before">
+            <field name="is_author" string="Author"/>
+            <field name="books" widget="many2many_tags"/>
+        </field>
+      </field>
+    </record>
+
+    <record id="author_res_partner_search" model="ir.ui.view">
+      <field name="name">Context authors filter</field>
+      <field name="model">res.partner</field>
+      <field name="arch" type="xml">
+            <search>
+                <field name="is_author" />
+                <filter string="Authors" name="filter_authors" domain="[('is_author','=', True)]"/>
+            </search>
+      </field>
+    </record>
+
+    <!-- Graph View -->
+    <record id="view_graph_authors_books" model="ir.ui.view">
+        <field name="name">graph</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <graph type="bar" stacked="False">
+                <field name="books_count" type="measure"/>
+                <field name="name"/>
+            </graph>
+        </field>
+    </record>
+</odoo>

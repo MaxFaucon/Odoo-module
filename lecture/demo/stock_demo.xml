@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Resource: stock.inventory -->
+
+        <record id="stock_inventory_0" model="stock.inventory">
+            <field name="name">Starting Books Inventory</field>
+        </record>
+
+        <!-- Resource: stock.inventory.line -->
+
+        <record id="stock_inventory_line_1" model="stock.inventory.line">
+            <field name="product_id" search="[('name','=','Harry Potter, I : Harry Potter à l\'école des sorciers')]"/>
+            <field name="product_uom_id" ref="uom.product_uom_unit"/>
+            <field name="inventory_id" ref="stock_inventory_0"/>
+            <field name="product_qty">10.0</field>
+            <field name="location_id" model="stock.location" eval="obj().env.ref('stock.warehouse0').lot_stock_id.id"/>
+        </record>
+
+        <record id="stock_inventory_line_2" model="stock.inventory.line">
+            <field name="product_id" search="[('name','=','Harry Potter et la chambre des secrets')]"/>
+            <field name="product_uom_id" ref="uom.product_uom_unit"/>
+            <field name="inventory_id" ref="stock_inventory_0"/>
+            <field name="product_qty">10.0</field>
+            <field name="location_id" model="stock.location" eval="obj().env.ref('stock.warehouse0').lot_stock_id.id"/>
+        </record>
+
+        <record id="stock_inventory_line_3" model="stock.inventory.line">
+            <field name="product_id" search="[('name','=','Harry Potter, III : Harry Potter et le prisonnier d\'Azkaban')]"/>
+            <field name="product_uom_id" ref="uom.product_uom_unit"/>
+            <field name="inventory_id" ref="stock_inventory_0"/>
+            <field name="product_qty">10.0</field>
+            <field name="location_id" model="stock.location" eval="obj().env.ref('stock.warehouse0').lot_stock_id.id"/>
+        </record>
+
+        <record id="stock_inventory_line_4" model="stock.inventory.line">
+            <field name="product_id" search="[('name','=','Dune - Tome 1')]"/>
+            <field name="product_uom_id" ref="uom.product_uom_unit"/>
+            <field name="inventory_id" ref="stock_inventory_0"/>
+            <field name="product_qty">10.0</field>
+            <field name="location_id" model="stock.location" eval="obj().env.ref('stock.warehouse0').lot_stock_id.id"/>
+        </record>
+
+        <record id="stock_inventory_line_5" model="stock.inventory.line">
+            <field name="product_id" search="[('name','=','Coffret Potter')]"/>
+            <field name="product_uom_id" ref="uom.product_uom_unit"/>
+            <field name="inventory_id" ref="stock_inventory_0"/>
+            <field name="product_qty">10.0</field>
+            <field name="location_id" model="stock.location" eval="obj().env.ref('stock.warehouse0').lot_stock_id.id"/>
+        </record>
+
+        <function model="stock.inventory" name="_action_start">
+            <function eval="[[('state','=','draft'),('id', '=', ref('stock_inventory_0'))]]" model="stock.inventory" name="search"/>
+        </function>
+        
+        <function model="stock.inventory" name="action_validate">
+            <function eval="[[('state','=','confirm'),('id', '=', ref('stock_inventory_0'))]]" model="stock.inventory" name="search"/>
+        </function>
+
+    </data>
+</odoo>

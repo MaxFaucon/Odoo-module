@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+
+        <record id="product_01" model="product.template">
+            <field name="name">Harry Potter, I : Harry Potter à l'école des sorciers</field>
+            <field name="type">product</field>
+            <field name="books" search="[('name','=','Harry Potter, I : Harry Potter à l\'école des sorciers')]" />
+            <field name="image_128" type="base64" file="lecture/static/img/harryPotter1.jpg"/>
+            <field name="image_1920" type="base64" file="lecture/static/img/harryPotter1.jpg"/>
+            <field name="available_in_pos">True</field>
+        </record>
+
+        <record id="product_02" model="product.template">
+            <field name="name">Harry Potter et la chambre des secrets</field>
+            <field name="type">product</field>
+            <field name="books" search="[('name','=','Harry Potter et la chambre des secrets')]" />
+            <field name="image_128" type="base64" file="lecture/static/img/harryPotter2.jpg"/>
+            <field name="image_1920" type="base64" file="lecture/static/img/harryPotter2.jpg"/>
+            <field name="available_in_pos">True</field>
+        </record>
+
+        <record id="product_03" model="product.template">
+            <field name="name">Harry Potter, III : Harry Potter et le prisonnier d'Azkaban</field>
+            <field name="type">product</field>
+            <field name="books" search="[('name','=','Harry Potter, III : Harry Potter et le prisonnier d\'Azkaban')]" />
+            <field name="image_128" type="base64" file="lecture/static/img/harryPotter3.jpg"/>
+            <field name="image_1920" type="base64" file="lecture/static/img/harryPotter3.jpg"/>
+            <field name="available_in_pos">True</field>
+        </record>
+
+        <record id="product_04" model="product.template">
+            <field name="name">Dune - Tome 1</field>
+            <field name="type">product</field>
+            <field name="books" search="[('name','=','Dune - Tome 1')]" />
+            <field name="image_128" type="base64" file="lecture/static/img/dune1.jpg"/>
+            <field name="image_1920" type="base64" file="lecture/static/img/dune1.jpg"/>
+            <field name="available_in_pos">True</field>
+        </record>
+
+        <record id="collection_01" model="product.template">
+            <field name="name">Coffret Potter</field>
+            <field name="type">product</field>
+            <field name="books" search="['|', '|',
+            ('name','=','Harry Potter, I : Harry Potter à l\'école des sorciers'),
+            ('name','=','Harry Potter et la chambre des secrets'),
+            ('name','=','Harry Potter, III : Harry Potter et le prisonnier d\'Azkaban')
+            ]" />
+            <field name="image_128" type="base64" file="lecture/static/img/harryPotterCollection.jpg"/>
+            <field name="image_1920" type="base64" file="lecture/static/img/harryPotterCollection.jpg"/>
+            <field name="available_in_pos">True</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="collection_product_form" model="ir.ui.view">
+        <field name="name">Add books field to product</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//page[@name='general_information']" position="after">
+                    <page name="library" string="Library">
+                        <group name="library">
+                            <group>
+                                <field name="books" string="Composé des livres" widget="many2many_tags"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="book_product_search" model="ir.ui.view">
+      <field name="name">Book products filter</field>
+      <field name="model">product.template</field>
+      <field name="arch" type="xml">
+            <search>
+                <field name="books" />
+                <filter string="Books" name="books_filter" domain="[('books','!=', False)]"/>
+            </search>
+      </field>
+    </record>
+
+</odoo>

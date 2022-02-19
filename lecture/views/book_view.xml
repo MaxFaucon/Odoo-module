@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_form_book" model="ir.ui.view">
+        <field name="name">Book Form</field>
+        <field name="model">book</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div name="button_like" class="oe_button_box">
+                        <button class="oe_stat_button" type="object" name="action_like" icon="fa-thumbs-up">
+                            <field name="like_count" string="likes" widget="statinfo" />
+                            <div>
+                                <field name="user_has_liked"/>
+                            </div>
+                        </button>
+                    </div>
+
+                    <group name="group_top">
+                        <group name="group_left">
+                            <field name="name" />
+                            <field name="authors" widget="many2many_tags" />
+                            <field name="pages_count" />
+                        </group>
+                        <group name="group_right">
+                            <field name="publication_date" />
+                            <field name="cover_image" widget="image" class="oe_avatar" />
+                        </group>
+                    </group>
+                    <group name="group_bottom">
+                        <field name="description" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_book" model="ir.ui.view">
+        <field name="name">Book Tree</field>
+        <field name="model">book</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="publication_date" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_filter_book" model="ir.ui.view">
+        <field name="name">Book Filter</field>
+        <field name="model">book</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="authors" />
+                <filter string="Without Authors" name="filter_not_authors" domain="[('has_authors','=',False)]" />
+            </search>
+        </field>
+    </record>
+</odoo>

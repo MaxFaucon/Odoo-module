@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+        <!-- Fournisseur -->
+        <record id="fournisseur" model="res.partner">
+            <field name="name">Presses Universitaires de Bruxelles</field>
+        </record>
+
+        <!-- Auteurs -->
+        <record id="author_01" model="res.partner">
+            <field name="name">J.K. Rowling</field>
+            <field name="is_author">True</field>
+        </record>
+        <record id="author_02" model="res.partner">
+            <field name="name">Frank Herbert</field>
+            <field name="is_author">True</field>
+        </record>
+
+    </data>
+</odoo>
